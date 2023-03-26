@@ -1,13 +1,127 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+  a {
+    @apply after:block after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full  sm:after:bg-orange-600 relative after:duration-300;
+  }
+  li {
+    @apply w-full hover:bg-white/10 flex justify-center items-center py-2;
+  }
+  label {
+    @apply text-white text-xl;
+  }
+  input {
+    @apply p-2 rounded-md text-black font-semibold text-lg;
+  }
+  input::placeholder {
+    @apply text-black/20 italic;
+  }
+  textarea {
+    @apply p-2 rounded-md;
+  }
+}
+@layer utilities {
+  .clipath {
+    position: absolute;
+    bottom: -1px;
+    height: 21rem;
+    width: 100%;
+    background: white;
+    clip-path: polygon(0 40%, 0% 100%, 100% 100%);
+  }
+  .clipath2 {
+    position: absolute;
+    bottom: -2px;
+    height: 10rem;
+    width: 100%;
+    background: white;
+    clip-path: polygon(0 40%, 0% 100%, 100% 100%);
+  }
+
+  .childs > * {
+    background: orangered;
+    border-radius: 50%;
+    padding: 7px;
+    height: 50px;
+    width: auto;
+    margin: 0 5px;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+  .childs > *:hover {
+    scale: 1.1;
+    background: rgb(247, 90, 33);
+  }
+  .show {
+    top: 0;
+  }
+
+  .hide {
+    top: -8vh;
+  }
+  .slider2 {
+    width: 80% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 1rem auto;
+    text-align: center !important;
+    cursor: pointer;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.slick-prev:before,
+.slick-next:before {
+  font-size: 24px;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 1 !important;
+  width: 30px !important;
+  height: 45px !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+.slick-prev {
+  left: 10px !important;
+}
+
+.slick-next {
+  right: 10px !important;
+}
+.slick-prev:hover,
+.slick-next:hover {
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+.animate-fill {
+  animation: fill 8.1s ease-in-out infinite;
+  background: rgb(255, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0) 16%,
+    rgba(255, 0, 0, 1) 100%
+  );
+}
+
+@keyframes fill {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
